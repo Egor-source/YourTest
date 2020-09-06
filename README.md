@@ -102,7 +102,7 @@
 		"answers":[
 			{
 				"text":"Кошка",
-				rigth:false
+				"rigth":false
 			},
 			{
 				"text":"Собака",
@@ -178,4 +178,29 @@ $('.someBlock').yourTest({
 	}
 });
 ```
+---
+
+## Методы плагина
+
+
+Название | Описание
+--- | ---
+**GetAttempts** | Метод для получения количества оставшихся попыток
+**GetCurrentQuestion** | Метод для получения номера вопроса на котором пользователь остановился
+
+<br>
+<br>
+
+### Пример использования:
+<br>
+
+```
+$('.someBlock).yourTest({
+    pathToQuestions: 'js/test.json',
+    answerNotFaithful: function() {
+        alert(`Не верный ответ. Осталось поыток ${$(this).GetAttemps()}`);
+    }
+});
+```
+
 

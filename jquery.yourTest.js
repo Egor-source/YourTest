@@ -214,7 +214,7 @@
     //Проверка настроек
     YourTest.prototype.checkSettings = function() {
         //Указан ли путь до файла с вопросами
-        ThrowExeption(this.settings.pathToQuestions == null, "Путь до файла с вопросами небыл указан");
+        ThrowExeption(this.settings.pathToQuestions == null, "Путь до файла с вопросами не был указан");
         //Проверяет расширение файла с вопросами
         ThrowExeption(this.settings.pathToQuestions.substr(this.settings.pathToQuestions.lastIndexOf('.')) != ".json", "Файл с ответами толжен иметь расширение 'json'");
         //Проверяет имеет-ли saveLastUserQuestion тип bolean
@@ -338,4 +338,14 @@
 
         return this.first();
     };
+
+    //Метод для получения количества оставшихся попыток
+    $.fn.GetAttempts = function() {
+        return GetCookie().attempts;
+    }
+
+    //Метод для получения номера вопроса на котором пользователь остановился
+    $.fn.GetCurrentQuestion = function() {
+        return GetCookie().currentQuestion;
+    }
 })(jQuery);
